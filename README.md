@@ -1,7 +1,7 @@
 # Cab Booking Application
 Hi! This is a basic REST api which is can be used for online cab booking service.
 ## Introduction
-This is a collaborative project abd was made by a team of 6 student studying in [Masai School](https://www.masaischool.com/), a coding and skill building school. Our objective was to create a basic REST api for online cab booking service with login, customer, admin, driver, cab, trip booking modules.
+This is a collaborative project and was made by a team of 6 student studying in [Masai School](https://www.masaischool.com/), a coding and skill building school. Our objective was to create a basic REST api for online cab booking service with login, customer, admin, driver, cab, trip booking modules.
 
 ## Tech Stack
 Java, Hibernate, Mysql, SpringBoot
