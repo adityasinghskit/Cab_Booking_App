@@ -4,7 +4,12 @@ Hi! This is a basic REST api which is can be used for online cab booking service
 This is a collaborative project and was made by a team of 6 student studying in [Masai School](https://www.masaischool.com/), a coding and skill building school. Our objective was to create a basic REST api for online cab booking service with login, customer, admin, driver, cab, trip booking modules.
 
 ## Tech Stack
-Java, Hibernate, Mysql, SpringBoot
+![view - Documentation](https://img.shields.io/badge/Java-orange?style=for-the-badge&logo=gitea)
+![view - Documentation](https://img.shields.io/badge/Hibernate-blue?style=for-the-badge&logo=hibernate)
+![view - Documentation](https://img.shields.io/badge/Mysql-ffca3a?style=for-the-badge&logo=mysql)
+![view - Documentation](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven)
+![view - Documentation](https://img.shields.io/badge/Swagger-white?style=for-the-badge&logo=swagger)
+![view - Documentation](https://img.shields.io/badge/Spring_Boot-purple?style=for-the-badge&logo=appveyor)
 
 ## Acknowledgement
 Sincere thanks to all faculty and staff members of Masai School who made all of this possible. Without their efforts we would not have completed this project.
