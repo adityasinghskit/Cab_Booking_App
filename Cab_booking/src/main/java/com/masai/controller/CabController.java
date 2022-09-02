@@ -20,7 +20,7 @@ import com.masai.entity.Cab;
 import com.masai.service.CabService;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class CabController {
 	
 	@Autowired

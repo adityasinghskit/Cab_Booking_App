@@ -26,7 +26,8 @@ import com.masai.entity.Cab;
 import com.masai.entity.TripBooking;
 import com.masai.service.AdminService;
 @RestController
-@RequestMapping("/api/admin")
+//@RequestMapping("/api/admin")
+@RequestMapping("/admin")
 public class AdminController {
 	
 	@Autowired
