@@ -1,20 +1,42 @@
 # Cab Booking Application
-It is built to support all the functionality related to managing a taxi booking system. 
-We will discuss each aspect of this project in detail for enhanced understanding.
-The Taxi Booking System project is designed in Spring Boot and Hibernate along with the source code.
-Admin will be responsible for keeping a check on the booking of taxis, managing taxis, drivers,
-payments, etc. On the other hand, Users can register themselves, log in using the login credentials,
-view and book the taxi, view charges, etc.
+Hi! This is a basic REST api which is can be used for online cab booking service.
+## Introduction
+This is a collaborative project and was made by a team of 6 student studying in [Masai School](https://www.masaischool.com/), a coding and skill building school. Our objective was to create a basic REST api for online cab booking service with login, customer, admin, driver, cab, trip booking modules.
 
-we  have designed a cab Booking System project in spring boot & hibernate, which has three main roles i.e. Admin and User. Admin is the primary user and can add/remove/update any details related to the system. Admin can manage registered users and drivers. Admin can Add/Remove/Update cab and their details from the system. Admin can also categorize taxis accordingly. Admin will be responsible for keeping a check on all the bookings done by users. Admin can View/Confirm/Cancel bookings done by users. Admin can check and manage the availability of cab and also, keep a track of the status of all the cab that are engaged.
+## Tech Stack
+![view - Documentation](https://img.shields.io/badge/Java-orange?style=for-the-badge&logo=gitea)
+![view - Documentation](https://img.shields.io/badge/Hibernate-blue?style=for-the-badge&logo=hibernate)
+![view - Documentation](https://img.shields.io/badge/Mysql-ffca3a?style=for-the-badge&logo=mysql)
+![view - Documentation](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven)
+![view - Documentation](https://img.shields.io/badge/Swagger-white?style=for-the-badge&logo=swagger)
+![view - Documentation](https://img.shields.io/badge/Spring_Boot-purple?style=for-the-badge&logo=appveyor)
 
-Admin can set/update prices and charges of the taxi rides. Admin can manage the drivers and their details.
+## Acknowledgement
+Sincere thanks to all faculty and staff members of Masai School who made all of this possible. Without their efforts we would not have completed this project.
+Especially [Ratan sir](https://www.linkedin.com/in/ratan-lal-gupta-79a4a7240/), [Abhinav sir](https://www.linkedin.com/in/abhinavgujral/).
 
-On the other hand, users can register. Users can search and view the taxis available. Users can search taxis by entering the location.
+## Problem Statement
+To Create an Application for Online Cab Booking 
+Customer should be able to view the list of available cabs.
+Customer should be able to book cab for desired location from a certain location. 
+Admin should be able to perform below operations:
+1. Cab Management 
+2. Driver Management
+3. Booking Management
 
-Admin can maintain a database of drivers. Drivers have to register on the portal. Drivers will be able to see the booking done by users and details of users like name, source, and destination location.
+## Modules
+1. Login Module
+2. Admin Module
+3. Customer Module
+4. Driver Management Module
+5. Cab Management Module
+6. Booking Management Module
 
-# Cab Booking Application ER diagram
+
+## Swagger-ui represantation
+![Cab_Booking_Swapper](https://user-images.githubusercontent.com/68966858/185415047-fb410006-16e9-44f6-b7df-647b02491db8.jpg)
+
+## Cab Booking Application ER diagram
 ![cab_booking_3](https://user-images.githubusercontent.com/68966858/185020617-92914a9c-b5e2-4b3b-aa36-dc6a26454cba.jpeg)
 
 # Functions of Admin, Cutomer, Driver
@@ -41,3 +63,82 @@ Admin can maintain a database of drivers. Drivers have to register on the portal
 3. Delete a driver from the system.
 4. Get the list of all drivers.
 5. Get the list of all best available(rated>=4.5) drivers.
+
+## Running the application locally
+To run the application:
+1. clone the repo
+2. Import the project in Spring Tool Suit software.
+3. Change the Mysql database login credentials, also change the port no to your liking.
+4. Run as a Spring boot app.
+5. Go to the browser and type URL:
+```
+http://localhost:8888/swagger-ui.html
+```
+In this I have used port 8888.<br>
+6. Now you will see swagger ui for the API and you can test API directly from there.
+## Test data
+TO ADD DRIVER<br>
+{
+  "address": {
+    "city": "Ajmer",
+    "pincode": "305001",
+    "state": "Rajasthan"
+  },
+  "available": true,
+  "cab": {
+    "carType": "sedan",
+    "ratePerKm": 10
+  },
+  "email": "abc@email.com",
+  "licenseNo": 136137,
+  "mobile": "9928228503",
+  "password": "abcdef",
+  "rating": 1,
+  "username": "Aditya"
+}
+
+TO ADD CUSTOMER<br>
+
+{
+  "address": {
+    "city": "jaipur",
+    "pincode": "783739",
+    "state": "Raj"
+  },
+  "email": "abc@mail.com",
+  "journey_status": true,
+  "mobile": "9999999999",
+  "password": "abcdef",
+  "username": "xzy"
+}
+
+TO ADD TRIP<br>
+
+{
+  "customerId": 4,
+  "driver": {
+    "userId": 0
+  },
+  "from_location": "ajmer",
+  "fromdate_time": "2022-08-17",
+  "km": 120,
+  "payment": true,
+  "to_location": "Jaipur",
+  "todate_time": "2022-08-18",
+  "totalamount": 1200
+}
+
+TO ADD ADMIN<br>
+
+{
+  "address": {
+    "city": "jnda",
+    "pincode": "298429",
+    "state": "kasa"
+  },
+  "email": "stranaa@dkd.com",
+  "mobile": "9999999999",
+  "password": "12344",
+  "username": "dadka"
+}
+
