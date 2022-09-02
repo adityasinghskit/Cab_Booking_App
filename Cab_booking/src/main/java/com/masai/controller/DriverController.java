@@ -22,7 +22,7 @@ import com.masai.entity.Driver;
 import com.masai.service.DriverService;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class DriverController {
 @Autowired
 private DriverService dService;

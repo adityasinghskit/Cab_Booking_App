@@ -21,7 +21,7 @@ import com.masai.entity.TripBooking;
 import com.masai.service.TripService;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class TripbookingController {
 	
 	@Autowired

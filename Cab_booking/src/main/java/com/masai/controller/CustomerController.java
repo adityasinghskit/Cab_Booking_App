@@ -18,7 +18,7 @@ import com.masai.entity.Customer;
 
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class CustomerController {
 	
 	@Autowired

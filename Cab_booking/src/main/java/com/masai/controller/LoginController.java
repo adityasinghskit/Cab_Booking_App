@@ -14,7 +14,7 @@ import com.masai.entity.CustomerDTO;
 import com.masai.service.UserLogInImpl;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class LoginController {
 	
 	@Autowired
