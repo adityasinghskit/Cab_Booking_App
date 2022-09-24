@@ -3,6 +3,7 @@ Hi! This is a basic REST api which is can be used for online cab booking service
 ## Introduction
 A collaborative project and was made by a team of 6 student studying in [Masai School](https://www.masaischool.com/), a coding and skill building school. Our objective was to create a basic REST api for online cab booking service with login, customer, admin, driver, cab, trip booking modules.
 
+![cab-booking-website-design](https://user-images.githubusercontent.com/68966858/192078558-7721ec19-bc91-4317-b460-a5db6ee5c07b.jpg)
 ## Tech Stack
 ![view - Documentation](https://img.shields.io/badge/Java-orange?style=for-the-badge&logo=gitea)
 ![view - Documentation](https://img.shields.io/badge/Hibernate-blue?style=for-the-badge&logo=hibernate)
