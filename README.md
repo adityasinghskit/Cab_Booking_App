@@ -35,7 +35,7 @@ Admin should be able to perform below operations:
 
 
 ## Swagger-ui represantation
-![Cab_Booking_Swapper](https://user-images.githubusercontent.com/68966858/185415047-fb410006-16e9-44f6-b7df-647b02491db8.jpg)
+![Screenshot (574)](https://user-images.githubusercontent.com/68966858/192139503-928ee0c1-4c8a-4d34-b4f1-b7be4c595824.png)
 
 ## Cab Booking Application ER diagram
 ![cab_booking_3](https://user-images.githubusercontent.com/68966858/185020617-92914a9c-b5e2-4b3b-aa36-dc6a26454cba.jpeg)
