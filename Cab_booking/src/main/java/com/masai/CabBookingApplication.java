@@ -7,22 +7,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 
 @SpringBootApplication
-@RequestMapping("/api")
-@EnableSwagger2
+
+@OpenAPIDefinition(info=@Info(title="Cab Booking API", version="1.2", description="Cab Booking Application is a backend focused web API, User can log in as Admin, Customer, or Driver and book a cab. Built using Java, Hibernate, Mysql, Maven, and SpringBoot."))
+//@RequestMapping("/api")
+//@EnableSwagger2
 public class CabBookingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CabBookingApplication.class, args);
 	}
 	
-	@Bean
+	/*@Bean
 	   public Docket productApi() {
 	      return new Docket(DocumentationType.SWAGGER_2)
 	    		  .select()
@@ -30,6 +29,7 @@ public class CabBookingApplication {
 	    		  .paths(PathSelectors.any())
 	    		  .build();
 	   }
+	   */
 	@Bean
 	public LocalValidatorFactoryBean validator(MessageSource ms) {
 	LocalValidatorFactoryBean lvfb=new LocalValidatorFactoryBean();
