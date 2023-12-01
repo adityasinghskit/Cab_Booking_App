@@ -1,6 +1,6 @@
 package com.masai.service;
 
-import com.masai.entity.CustomerDTO;
+import com.masai.dto.CustomerDTO;
 
 public interface UserLogIn {
 	

@@ -1,18 +1,16 @@
 package com.masai.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 
 @Entity
 @Data
-@NoArgsConstructor
-
 @PrimaryKeyJoinColumn(name="adminId")
-public class Admin extends Abstractuser {
+public class Admin extends AbstractUser {
 
+    @Column(insertable = false, updatable = false, nullable = false)
+    private String adminId;
 }
