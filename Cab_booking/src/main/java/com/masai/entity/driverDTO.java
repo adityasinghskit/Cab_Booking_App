@@ -1,11 +1,8 @@
-package com.masai.dto;
+package com.masai.entity;
 
 import javax.persistence.Entity;
 
 
-import com.masai.entity.Address;
-import com.masai.entity.Cab;
-import com.masai.entity.TripBooking;
 import lombok.Data;
 
 

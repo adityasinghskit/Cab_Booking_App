@@ -1,9 +1,10 @@
 package com.masai.service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.masai.entity.Admin;
+import com.masai.entity.Cab;
 import com.masai.entity.TripBooking;
 import com.masai.exception.AdminExceptions;
 
@@ -25,7 +26,7 @@ public interface AdminService {
 	
 	public List<TripBooking> getTripsDatewise() throws AdminExceptions;
 	
-	public List<TripBooking> getTripsDatewiseAndCustomer(String customerId, Date date) throws AdminExceptions;
+	public List<TripBooking> getTripsDatewiseAndCustomer(Integer customerId,LocalDate date) throws AdminExceptions;
 	
 	
 	

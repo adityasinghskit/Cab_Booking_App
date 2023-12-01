@@ -26,7 +26,7 @@ public class TripServiceImp implements TripService {
 	@Override
 	public TripBooking AddTrip(TripBooking tb) throws InvalidId {
 		
-		cdao.findByCustomerId(tb.getCustomerId()).orElseThrow(() -> new InvalidId("Customer with ID "+tb.getCustomerId()+" does not exit.."));
+		cdao.findById(tb.getCustomerId()).orElseThrow(() -> new InvalidId("Customer with ID "+tb.getCustomerId()+" does not exit.."));
 		List<Driver> drivers= ddao.viewBestDriver();
 		if(drivers.size()==0)
 		{
@@ -55,10 +55,10 @@ public class TripServiceImp implements TripService {
 		TripBooking c1=trip.getById(id);
 		
 		c1.setCustomerId(tb.getCustomerId());
-		c1.setFromLocation(tb.getFromLocation());
-		c1.setToLocation(tb.getToLocation());
-		c1.setFromDateTime(tb.getFromDateTime());
-		c1.setToDateTime(tb.getToDateTime());
+		c1.setFrom_location(tb.getFrom_location());
+		c1.setTo_location(tb.getTo_location());
+		c1.setFromdate_time(tb.getFromdate_time());
+		c1.setTodate_time(tb.getTodate_time());
 		c1.setKm(tb.getKm());
 		
             trip.save(c1);		
@@ -81,8 +81,8 @@ public class TripServiceImp implements TripService {
 		
 		TripBooking ct=trip.findById(id).orElseThrow(() -> new InvalidId("TripBooking with ID "+id+" does not exit.."));
 	    
-		String driverId=ct.getDriver().getUserId();
-		Driver dt = ddao.findByDriverId(driverId).orElseThrow(() -> new InvalidId("Drive with ID "+driverId+" does not exit.."));
+		Integer driverid=ct.getDriver().getUserId();
+		Driver dt=ddao.findById(driverid).orElseThrow(() -> new InvalidId("Drive with ID "+driverid+" does not exit.."));
 	 
 		dt.setAvailable(true);
 		ddao.save(dt);

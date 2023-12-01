@@ -3,14 +3,13 @@ package com.masai.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.masai.dto.Auditable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 @Getter
 @Setter
@@ -18,12 +17,11 @@ import org.hibernate.annotations.GenericGenerator;
 @AllArgsConstructor
 @Entity
 
-public class Address extends Auditable {
+public class Address {
 	
 	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid2")
-	private String addressId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	
 	private String city;
 

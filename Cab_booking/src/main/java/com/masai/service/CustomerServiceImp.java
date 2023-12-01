@@ -32,7 +32,7 @@ public class CustomerServiceImp implements CustomerService {
 	public Customer findCustomer(Integer id) throws InvalidId {
 	
 
-		Customer ct = cdao.findById(id).orElseThrow(() -> new InvalidId("Customer with ID "+id+" does not exit.."));
+		Customer ct=cdao.findById(id).orElseThrow(() -> new InvalidId("Customer with ID "+id+" does not exit.."));
 		
 		
 		return ct;
@@ -43,14 +43,14 @@ public class CustomerServiceImp implements CustomerService {
 		
 		Customer c1=cdao.findById(id).orElseThrow(() -> new InvalidId("Customer with ID "+id+" does not exit.."));
 		
-	String aid = c1.getAddress().getAddressId();
+	Integer aid=	c1.getAddress().getId();
 		
 		c1.setAddress(customer.getAddress());
 		c1.setEmail(customer.getEmail());
 		c1.setMobile(customer.getMobile());
 		c1.setPassword(customer.getPassword());
 		c1.setUsername(customer.getUsername());
-		Address a1=Adao.findByAddressId(aid).orElseThrow(() -> new InvalidId("Address with ID "+aid+" does not exit.."));
+		Address a1=Adao.findById(aid).orElseThrow(() -> new InvalidId("Address with ID "+aid+" does not exit.."));
 		Adao.delete(a1);
 		Adao.save(customer.getAddress());
 		

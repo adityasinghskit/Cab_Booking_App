@@ -1,4 +1,4 @@
-package com.masai.dto;
+package com.masai.entity;
 
 import lombok.Data;
 
