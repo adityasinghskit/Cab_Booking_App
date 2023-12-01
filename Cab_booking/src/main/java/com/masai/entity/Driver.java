@@ -1,13 +1,7 @@
 package com.masai.entity;
 
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,26 +16,23 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @PrimaryKeyJoinColumn(name="driverId")
-public class Driver extends Abstractuser {
+public class Driver extends AbstractUser {
 
+	@Column(insertable = false, updatable = false, nullable = false)
+	private String driverId;
 
-	@NotNull
 	@Min(value=1, message="id should be more than 1")
-	@PrimaryKeyJoinColumn(name="driverID")
+	private Integer licenseNo;
+	@Min(value=1, message="id should be more than 1")
+	private Double rating;
+	private Boolean available;
 
-@Min(value=1, message="id should be more than 1")
-private Integer licenseNo;
-@Min(value=1, message="id should be more than 1")
-private Double rating;
-private Boolean available;
+	@OneToOne(cascade= CascadeType.ALL)
+	@JoinColumn(name="cabId")
+	private Cab cab;
 
-@OneToOne(cascade= CascadeType.ALL)
-@JoinColumn(name="cabId")
-private Cab cab;
-
-
-@OneToOne(cascade = CascadeType.ALL,mappedBy = "driver",orphanRemoval = true)
-@JsonIgnore
-private TripBooking tripBooking;
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "driver", orphanRemoval = true)
+	@JsonIgnore
+	private TripBooking tripBooking;
 
 }

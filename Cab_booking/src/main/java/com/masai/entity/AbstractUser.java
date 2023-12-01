@@ -1,28 +1,16 @@
 package com.masai.entity;
 
-
-
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.masai.dto.Auditable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -30,34 +18,30 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class Abstractuser implements Serializable {
-	
-	@GeneratedValue(strategy = GenerationType.AUTO)
+public abstract class AbstractUser extends Auditable{
+
 	@Id
-	@EqualsAndHashCode.Include
-	private Integer userId;
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	private String userId;
 	
 	@Size(min = 3, max = 255, message = "{nameRange}")
 	@NotNull(message = "{notNull}")
-	private String Username;
+	private String username;
 	
 	@Size(min = 4, max = 20, message = "{PasswordRange}")
 	@NotNull(message = "{notNull}")
-	private String Password;
-	
-
+	private String password;
 
 	@Size(min = 10, message = "{MobileRange}")
-	private String Mobile;
+	private String mobile;
 
-
-	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="id")
 	private Address address;
 	
 	@Email
 	@NotNull(message = "{notNull}")
-	private String Email;
+	private String email;
 
 }

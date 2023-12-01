@@ -2,6 +2,7 @@ package com.masai.service;
 
 import java.util.List;
 
+import com.masai.enums.CabType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class CabServiceImpl implements CabService {
 
 
 	@Override
-	public Cab updateCab(Integer id,String type, Integer rate) throws NotFoundException {
+	public Cab updateCab(Integer id, CabType type, Integer rate) throws NotFoundException {
 		// TODO Auto-generated method stub
 		java.util.Optional<Cab> opt = cDao.findById(id);
 	
@@ -66,9 +67,9 @@ public class CabServiceImpl implements CabService {
 	
 
 	@Override
-	public List<String> viewCabsOfType() throws NotFoundException {
+	public List<CabType> viewCabsOfType() throws NotFoundException {
 		// TODO Auto-generated method stub
-		List<String> cabs = cDao.viewCarType();
+		List<CabType> cabs = cDao.viewCarType();
 		return cabs;
 	}
 

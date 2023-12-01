@@ -22,7 +22,7 @@ public class DriverServiceImpl implements DriverService {
 	@Autowired
 	private CabDao cDao;
 	@Autowired
-	private AddressDao Adao;
+	private AddressDao adao;
 	
 	@Override
 	public Driver insertDriver(Driver driver) {
@@ -65,11 +65,11 @@ public class DriverServiceImpl implements DriverService {
 	public Driver deleteDriverById(Integer id) throws DriverNotFoundException{
           Driver d1=dDao.findById(id).orElseThrow(()-> new DriverNotFoundException("No Driver found"));
         
-        cDao.deleteById(d1.getCab().getCabId());
-        Adao.delete(d1.getAddress());
+        cDao.deleteByCabId(d1.getCab().getCabId());
+        adao.delete(d1.getAddress());
 	    dDao.delete(d1);
 	    return d1;
-			
+
 	}
 
 	@Override

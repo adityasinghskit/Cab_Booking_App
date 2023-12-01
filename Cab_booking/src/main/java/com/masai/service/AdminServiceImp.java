@@ -1,6 +1,6 @@
 package com.masai.service;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,12 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.entity.Admin;
-import com.masai.entity.Cab;
 import com.masai.entity.Customer;
-import com.masai.entity.Driver;
 import com.masai.entity.TripBooking;
 import com.masai.exception.AdminExceptions;
-import com.masai.exception.NotFoundException;
 import com.masai.repository.AdminDao;
 import com.masai.repository.CabDao;
 import com.masai.repository.CustomerDao;
@@ -47,7 +44,7 @@ public class AdminServiceImp implements AdminService {
 
 	@Override
 	public Admin update(Admin admin) throws AdminExceptions {
-		Optional<Admin> opt = adminDao.findById(admin.getUserId());
+		Optional<Admin> opt = adminDao.findByUserId(admin.getUserId());
 		if (opt.isPresent()) {
 			//Admin existAdmin = opt.get();
 			return adminDao.save(admin);
@@ -88,7 +85,7 @@ public class AdminServiceImp implements AdminService {
 
 	@Override
 	public List<TripBooking> getTripsCustomerwise() {
-		List<TripBooking> list = tripDao.findByCustomeridAsce();
+		List<TripBooking> list = tripDao.findByCustomerIdAsce();
 		if(list.size() > 0)
 			return list;
 		else
@@ -98,7 +95,7 @@ public class AdminServiceImp implements AdminService {
 
 	@Override
 	public List<TripBooking> getTripsDatewise() throws AdminExceptions {
-		List<TripBooking> list = tripDao.findByFromdate_timeAsce();
+		List<TripBooking> list = tripDao.findByFromDateTimeAsce();
 		if(list.size() > 0)
 			return list;
 		else
@@ -106,8 +103,8 @@ public class AdminServiceImp implements AdminService {
 	}
 
 	@Override
-	public List<TripBooking> getTripsDatewiseAndCustomer(Integer customerId, LocalDate date) throws AdminExceptions {
-		List<TripBooking> list = tripDao.findByCustomerIdAndFromdate_time(customerId, date);
+	public List<TripBooking> getTripsDatewiseAndCustomer(String customerId, Date date) throws AdminExceptions {
+		List<TripBooking> list = tripDao.findByCustomerIdAndFromDateTime(customerId, date);
 		if(list.size() > 0)
 			return list;
 		else

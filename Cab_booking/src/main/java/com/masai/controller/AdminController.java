@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class AdminController {
 	@PostMapping("/")
 	public ResponseEntity<Admin> insertAdminHandler(@RequestBody Admin admin) {
 		Admin savedAdmin = adminService.saveAdmin(admin);
-		return new ResponseEntity<Admin>(savedAdmin,HttpStatus.OK);
+		return ResponseEntity.ok(savedAdmin);
 	}
 	
 	@GetMapping("/")
@@ -48,28 +49,28 @@ public class AdminController {
 	@DeleteMapping("/{adminId}")
 	public ResponseEntity<Admin> deleteMappingHandler(@PathVariable("adminId") Integer adminId) {
 		Admin returnAdmin = adminService.delete(adminId); 
-		return new ResponseEntity<Admin>(returnAdmin,HttpStatus.OK);
+		return ResponseEntity.ok(returnAdmin);
 	}
 	
 	@GetMapping("/trips/{customerId}")
 	public ResponseEntity<List<TripBooking>>  getAllTripsHandler(@PathVariable("customerId") Integer customerId){
 		
 		List<TripBooking> trips= adminService.getAllTrips(customerId);
-		return new ResponseEntity<List<TripBooking>>(trips,HttpStatus.OK);
+		return ResponseEntity.ok(trips);
 	}
 	
 	@GetMapping("trips/{cab}")
 	public ResponseEntity<List<TripBooking>> getTripsDriverwiseHandler(@RequestBody Cab cab){
 		
 		List<TripBooking> trips= adminService.getTripsDriverwise();
-		return new ResponseEntity<List<TripBooking>>(trips,HttpStatus.OK);
+		return ResponseEntity.ok(trips);
 	}
 	
 	
 	@PutMapping("/")
 	public ResponseEntity<String> updateAdminHandler(@RequestBody Admin admin) {
 		Admin updatedAdmin = adminService.update(admin);
-		return new ResponseEntity<String>("admin updated "+updatedAdmin,HttpStatus.ACCEPTED); 
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body("admin updated "+updatedAdmin);
 	}
 	
 	
@@ -77,20 +78,17 @@ public class AdminController {
 	
 	@GetMapping("/customertrips")
 	public List<TripBooking> getTripsCustomerwiseHandler(){
-		List<TripBooking> list = adminService.getTripsCustomerwise();
-		return list;
+		return adminService.getTripsCustomerwise();
 	}
 	
 	@GetMapping("/datewisetrips")
 	public List<TripBooking> getTripsDatewiseHandler(){
-		List<TripBooking> list = adminService.getTripsDatewise();
-		return list;
+		return adminService.getTripsDatewise();
 	}
 	
 	@GetMapping("trips/{customerId}/{date}")
-	public List<TripBooking> getTripsDatewiseAndCustomerHandler(@PathVariable("customerId") Integer customerId, @PathVariable("date") LocalDate date){
-		List<TripBooking> list = adminService.getTripsDatewiseAndCustomer(customerId, date);
-		return list;
+	public List<TripBooking> getTripsDatewiseAndCustomerHandler(@PathVariable("customerId") String customerId, @PathVariable("date") Date date){
+		return adminService.getTripsDatewiseAndCustomer(customerId, date);
 
 	}
 }

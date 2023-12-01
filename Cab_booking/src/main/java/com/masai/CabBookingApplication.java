@@ -13,8 +13,6 @@ import io.swagger.v3.oas.annotations.info.Info;
 @SpringBootApplication
 
 @OpenAPIDefinition(info=@Info(title="Cab Booking API", version="1.2", description="Cab Booking Application is a backend focused web API, User can log in as Admin, Customer, or Driver and book a cab. Built using Java, Hibernate, Mysql, Maven, and SpringBoot."))
-//@RequestMapping("/api")
-//@EnableSwagger2
 public class CabBookingApplication {
 
 	public static void main(String[] args) {

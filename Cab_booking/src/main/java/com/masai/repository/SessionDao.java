@@ -10,7 +10,7 @@ import com.masai.entity.CurrentUserSession;
 @Repository
 public interface SessionDao extends JpaRepository<CurrentUserSession, Integer>{
 	
-	public Optional<CurrentUserSession> findById(Integer userId);
+	Optional<CurrentUserSession> findById(String userId);
 	
-	public Optional<CurrentUserSession> findByUuid(String uuid);
+	Optional<CurrentUserSession> findByUuid(String uuid);
 }
