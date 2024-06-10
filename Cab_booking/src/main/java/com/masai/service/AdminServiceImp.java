@@ -111,5 +111,4 @@ public class AdminServiceImp implements AdminService {
 			throw new AdminExceptions("No trips found for customer id "+customerId+" and date : "+date);
 	}
 
-
 }
